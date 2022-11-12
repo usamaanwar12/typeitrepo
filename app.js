@@ -1,9 +1,9 @@
 // import {app} from "./config"
 import {db} from "./config.js";
 import { collection, addDoc,getDocs, setDoc, doc, where , query } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
-import { storage , auth } from  "./config.js";
-import { getDownloadURL , ref,  uploadBytes } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js"
-import { onAuthStateChanged , } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+import { storage , auth , } from  "./config.js";
+
+import {  signOut } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 let clstime = document.querySelector("#clstime");
 let clsschedule = document.querySelector("#clsschedule");
 let tchName = document.querySelector("#tchName");
@@ -88,3 +88,13 @@ async function finduser(){
     });
 }
  
+let signOutBtn = document.querySelector("#LogOut");
+signOutBtn.addEventListener("click", logOut);
+async function logOut() {
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    window.location = "signin.html"
+  }).catch((error) => {
+    // An error happened.
+  });
+}
