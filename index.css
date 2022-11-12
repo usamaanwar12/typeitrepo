@@ -1,6 +1,6 @@
-.container-fluid{
+/*.container-fluid{
     /* height: 100vh; */
-}
+
 
 .container{
     max-width: 1000px;
@@ -125,3 +125,4 @@
       width: 40%!important;
     }
   };
+

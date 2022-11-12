@@ -1,9 +1,9 @@
 // import {app} from "./config"
-import {db} from "./config.js"
+import {db} from "./config.js";
 import { collection, addDoc,getDocs, setDoc, doc, where , query } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js";
-
-
-
+import { storage , auth } from  "./config.js";
+import { getDownloadURL , ref,  uploadBytes } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js"
+import { onAuthStateChanged , } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 let clstime = document.querySelector("#clstime");
 let clsschedule = document.querySelector("#clsschedule");
 let tchName = document.querySelector("#tchName");
@@ -62,18 +62,29 @@ async function finduser(){
     let userInput = document.querySelector("#userInput");
     let condition = where("RollNum", "==", userInput.value);
 
-    
+    let cardname = document.querySelector("#cardname");
+    let cardfname = document.querySelector("#cardfname");
+    let cardroll = document.querySelector("#cardroll");
+    let cardcnt = document.querySelector("#cardcnt")
+
     const q = query(collectionRef, condition);
     let usersSnapshot = await getDocs(q);
     usersSnapshot.forEach((doc) => {
       // console.log(doc.data());
       let showData = document.querySelector("#showData");
-      showData.innerHTML = doc.data();
-      console.log(doc.data());
+    //   showData.innerHTML = doc.data();
+      cardname.innerHTML = doc.data().Name;
+      cardfname.innerHTML = doc.data().FatherName;
+      cardroll.innerHTML = doc.data().RollNum;
+      cardcnt.innerHTML = doc.data().ContactNum;
+
+
+    //   let userInput = document.querySelector("#userInput");
+    //   userInput.addEventListener("click",)
+    //   userInput.innerHTML = "";
+    //   console.log(doc.data());
       // secB.addEventListener("click", () => doc.data());
       // secC.addEventListener("click", () => doc.data());
     });
 }
  
-      
-        

@@ -135,6 +135,21 @@ button:focus{
     font-size: 40px;
 }
 
+#searchUser:hover{
+  background-color: #7df179;
+}
+
+#userInput{
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+/* #userInput:hover{
+  background-color: #0896f5;
+} */
 
 
-
+/* #pic{
+  width: 20%;
+  height: 20%;
+} */

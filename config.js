@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
-
+import { getStorage } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js"
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
-
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
  const firebaseConfig = {
     apiKey: "AIzaSyA5cuEDejR99HedYWktbRuYAboZINN8Z0w",
     authDomain: "hackaton-e7f62.firebaseapp.com",
@@ -12,6 +12,7 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/9.14.0/firebase
     measurementId: "G-VEVKJCKX9R"
  };
 
-
-export const app = initializeApp(firebaseConfig);
+ export const app = initializeApp(firebaseConfig);
+ export const auth = getAuth(app);
 export const db = getFirestore(app);
+export const storage = getStorage(app);
